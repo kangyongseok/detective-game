@@ -9,6 +9,7 @@ export default function Index() {
   const router = useRouter();
   return (
     <Wrap>
+      <div id="map" style={{width: 100, height: 100}}></div>
       <Box>
         <Text>안녕하세요 OOO 탐정님</Text>
         <Text>수락하신 사건의 수사 시작 장소입니다.</Text>

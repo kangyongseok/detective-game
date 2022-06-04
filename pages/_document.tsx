@@ -1,14 +1,18 @@
 import { Html, Head, Main, NextScript } from 'next/document';
+import Script from 'next/script';
 
 function Document() {
   return (
     <Html lang="ko">
       <Head>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
         />
+        <Script
+          strategy="beforeInteractive"
+          src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_MAP_KEY}`}
+        ></Script>
       </Head>
       <body>
         <Main />
