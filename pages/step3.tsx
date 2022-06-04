@@ -34,7 +34,7 @@ function Step3() {
         <TextField onChange={(e) => setAnswer(e.target.value)} fullWidth id="outlined-basic" label="답변 1글자" variant="outlined" />
         <Typography>탐정 크레딧을 사용해서 답을 바로 확인하고 싶나요?</Typography>
         <Typography> 탐정 크레딧 차감하고 답 확인하기</Typography>
-        <Typography>힌트가 현장 상황과 다른가요? {'>'} 힌트 오류 제보하기</Typography>
+        <Typography>힌트가 현장 상황과 다른가요?  힌트 오류 제보하기</Typography>
       </Box>
       <ButtonArea>
         <Button onClick={() => router.back()} variant="outlined">돌아가기</Button>
