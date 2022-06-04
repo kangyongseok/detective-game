@@ -32,7 +32,7 @@ function Step2() {
       </Box>
       <Box>
         <TextField onChange={(e) => setAnswer(e.target.value)} fullWidth id="outlined-basic" label="답변 1글자" variant="outlined" />
-        <Typography>도움이 필요한가요? > 힌트보기</Typography>
+        <Typography>도움이 필요한가요? {'>'} 힌트보기</Typography>
       </Box>
       <ButtonArea>
         <Button onClick={() => router.back()} variant="outlined">돌아가기</Button>
