@@ -9,12 +9,18 @@ import { useEffect, useRef, useState } from 'react';
 export default function Index() {
   const router = useRouter();
   const [mapLoaded, setMapLoaded] = useState<boolean>(false);
+  const [location1, setLocation1] = useState<number>();
+  const [location2, setLocation2] = useState<number>();
 
   useEffect(() => {
     const $script = document.createElement("script");
     $script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=96fd4a0e199d614b31f722e9cc29adc3&autoload=false`;
     $script.addEventListener("load", () => setMapLoaded(true));
     document.head.appendChild($script);
+    navigator.geolocation.getCurrentPosition((position) => {
+      setLocation1(position.coords.latitude)
+      setLocation2(position.coords.longitude)
+    });
   }, []);
   useEffect(() => {
     if (!mapLoaded) return;
@@ -22,12 +28,12 @@ export default function Index() {
     window.kakao.maps.load(() => {
       var container = document.getElementById('map');
       var options = {
-        center: new window.kakao.maps.LatLng(33.450701, 126.570667),
+        center: new window.kakao.maps.LatLng(location1, location2),
         level: 3
       };
 
       // 마커가 표시될 위치입니다 
-      var markerPosition = new window.kakao.maps.LatLng(33.450701, 126.570667);
+      var markerPosition = new window.kakao.maps.LatLng(location1, location2);
 
       // 마커를 생성합니다
       var marker = new window.kakao.maps.Marker({
@@ -39,7 +45,7 @@ export default function Index() {
       marker.setMap(map);
     })
 
-  }, [mapLoaded]);
+  }, [mapLoaded, location1, location2]);
   return (
     <Wrap>
       <Box>
