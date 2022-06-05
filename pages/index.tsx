@@ -19,23 +19,23 @@ export default function Index() {
   useEffect(() => {
     if (!mapLoaded) return;
 
-    kakao.maps.load(() => {
+    window.kakao.maps.load(() => {
       var container = document.getElementById('map');
       var options = {
-        center: new kakao.maps.LatLng(33.450701, 126.570667),
+        center: new window.kakao.maps.LatLng(33.450701, 126.570667),
         level: 3
       };
 
       // 마커가 표시될 위치입니다 
-      var markerPosition = new kakao.maps.LatLng(33.450701, 126.570667);
+      var markerPosition = new window.kakao.maps.LatLng(33.450701, 126.570667);
 
       // 마커를 생성합니다
-      var marker = new kakao.maps.Marker({
+      var marker = new window.kakao.maps.Marker({
         position: markerPosition
       });
 
 
-      var map = new kakao.maps.Map(container, options);
+      var map = new window.kakao.maps.Map(container, options);
       marker.setMap(map);
     })
 
